@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://jopyagehua3y"]
+
+[ext_resource type="Script" uid="uid://ca8325bgrhk7u" path="res://Scripts/hud.gd" id="1_3quw2"]
+[ext_resource type="FontFile" uid="uid://cv5bgstr3v68r" path="res://Assets/Fonts/flappyfont.TTF" id="2_fmoiy"]
+[ext_resource type="Texture2D" uid="uid://dfgkqsoqbuei1" path="res://Assets/Texture/message.png" id="3_fmoiy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1bkm"]
+font = ExtResource("2_fmoiy")
+font_size = 48
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1074012662]
+script = ExtResource("1_3quw2")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=87045718]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 118.0
+grow_horizontal = 2
+text = "999"
+label_settings = SubResource("LabelSettings_d1bkm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartMessage" type="TextureRect" parent="." unique_id=451689611]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -315.0
+offset_right = 192.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fmoiy")

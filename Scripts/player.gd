@@ -5,6 +5,7 @@ signal game_started
 var started := false
 var is_alive := true
 signal died
+signal scored
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("flap") && is_alive:
@@ -36,3 +37,8 @@ func die() -> void:
 	if is_alive:
 		is_alive = false 
 		died.emit()
+		animation_player.pause()
+
+func score_point() -> void:
+	if is_alive:
+		scored.emit()

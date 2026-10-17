@@ -14,7 +14,7 @@ size = Vector2(78, 481)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6tx1"]
 size = Vector2(20, 112)
 
-[node name="Obstacle" type="CharacterBody2D" unique_id=218177599]
+[node name="Obstacle" type="CharacterBody2D" unique_id=218177599 groups=["obstacles"]]
 script = ExtResource("1_xod6l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849218742]
@@ -34,7 +34,7 @@ flip_v = true
 position = Vector2(0, -347)
 shape = SubResource("RectangleShape2D_d1bkm")
 
-[node name="Piller-Bottem" type="Area2D" parent="." unique_id=1016467409]
+[node name="Piller-Bottem" type="Area2D" parent="." unique_id=1016467409 groups=["obstacles"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="Piller-Bottem" unique_id=1241626090]
 position = Vector2(0, 299)

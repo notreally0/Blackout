@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://be2wyaabj3g6y" path="res://Scripts/ground.gd" id="1_jdtpl"]
 [ext_resource type="Texture2D" uid="uid://b5c5d3jepvu4j" path="res://Assets/Texture/ground.png" id="2_e5bas"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1bkm"]
-size = Vector2(504, 168)
-
 [sub_resource type="Animation" id="Animation_e5bas"]
 length = 0.001
 tracks/0/type = "value"
@@ -43,11 +40,19 @@ _data = {
 &"scroll": SubResource("Animation_jdtpl")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1bkm"]
+size = Vector2(504, 168)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d1bkm"]
 distance = 40.0
 
 [node name="Ground" type="StaticBody2D" unique_id=1521306590]
 script = ExtResource("1_jdtpl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2063200664]
+root_node = NodePath("../CollisionShape2D")
+libraries/ = SubResource("AnimationLibrary_e5bas")
+autoplay = &"scroll"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1491653689]
 texture_repeat = 2
@@ -60,11 +65,6 @@ region_rect = Rect2(0, 0, 800, 168)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731690761]
 position = Vector2(252, 84)
 shape = SubResource("RectangleShape2D_d1bkm")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2063200664]
-root_node = NodePath("../CollisionShape2D")
-libraries/ = SubResource("AnimationLibrary_e5bas")
-autoplay = &"scroll"
 
 [node name="Deathzone" type="Area2D" parent="." unique_id=267653594]
 

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://m3sqil6kw7xo"]
+
+[ext_resource type="Script" uid="uid://btrrfgmg8yvpq" path="res://Scripts/game_over_screen.gd" id="1_c2byr"]
+[ext_resource type="Texture2D" uid="uid://bdqwo8gf4yi3j" path="res://Assets/Texture/gameover.png" id="2_hv55m"]
+[ext_resource type="FontFile" uid="uid://cv5bgstr3v68r" path="res://Assets/Fonts/flappyfont.TTF" id="3_5fnn5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1bkm"]
+font = ExtResource("3_5fnn5")
+font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverScreen" type="Control" unique_id=914788439]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2byr")
+
+[node name="Panel" type="Panel" parent="." unique_id=2097650963]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 72.0
+offset_top = 160.0
+offset_right = 408.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="TextureRect" parent="Panel" unique_id=1085472899]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 88.0
+texture = ExtResource("2_hv55m")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1996890556]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 136.0
+offset_right = 294.0
+offset_bottom = 185.0
+text = "Score: 999"
+label_settings = SubResource("LabelSettings_d1bkm")
+
+[node name="Label2" type="Label" parent="Panel" unique_id=648224472]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 208.0
+offset_right = 310.0
+offset_bottom = 257.0
+text = "BeST: 999"
+label_settings = SubResource("LabelSettings_d1bkm")
+
+[node name="RetryButton" type="Button" parent="Panel" unique_id=1078536446]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 88.0
+offset_right = 81.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("3_5fnn5")
+theme_override_font_sizes/font_size = 48
+text = "RETRY"
