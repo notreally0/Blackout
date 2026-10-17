@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://d27pi2g0wr1hg"]
+
+[ext_resource type="Script" uid="uid://cvcd1o7xqbdwl" path="res://Scripts/obstacle.gd" id="1_xod6l"]
+[ext_resource type="Texture2D" uid="uid://vvaikprqkxd3" path="res://Assets/Texture/pillar.png" id="2_8vl0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3vn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1bkm"]
+size = Vector2(78, 578)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8s1y"]
+size = Vector2(78, 481)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6tx1"]
+size = Vector2(20, 112)
+
+[node name="Obstacle" type="CharacterBody2D" unique_id=218177599]
+script = ExtResource("1_xod6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=849218742]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_j3vn7")
+disabled = true
+
+[node name="Piller-top" type="Area2D" parent="." unique_id=303838903]
+
+[node name="Sprite2D" type="Sprite2D" parent="Piller-top" unique_id=732372768]
+position = Vector2(0, -347)
+scale = Vector2(1, 1.2041667)
+texture = ExtResource("2_8vl0u")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piller-top" unique_id=2116405426]
+position = Vector2(0, -347)
+shape = SubResource("RectangleShape2D_d1bkm")
+
+[node name="Piller-Bottem" type="Area2D" parent="." unique_id=1016467409]
+
+[node name="Sprite2D" type="Sprite2D" parent="Piller-Bottem" unique_id=1241626090]
+position = Vector2(0, 299)
+texture = ExtResource("2_8vl0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piller-Bottem" unique_id=474587446]
+position = Vector2(0, 299.5)
+shape = SubResource("RectangleShape2D_u8s1y")
+
+[node name="ScoreBox" type="Area2D" parent="." unique_id=701763316]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreBox" unique_id=225819306]
+position = Vector2(29, 0)
+shape = SubResource("RectangleShape2D_h6tx1")
+
+[connection signal="body_entered" from="Piller-top" to="." method="_on_pillertop_body_entered"]
+[connection signal="body_entered" from="Piller-Bottem" to="." method="_on_piller_bottem_body_entered"]
+[connection signal="body_entered" from="ScoreBox" to="." method="_on_score_box_body_entered"]

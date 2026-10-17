@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cahayeudrtp88"]
+
+[ext_resource type="Script" uid="uid://be2wyaabj3g6y" path="res://Scripts/ground.gd" id="1_jdtpl"]
+[ext_resource type="Texture2D" uid="uid://b5c5d3jepvu4j" path="res://Assets/Texture/ground.png" id="2_e5bas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1bkm"]
+size = Vector2(504, 168)
+
+[sub_resource type="Animation" id="Animation_e5bas"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jdtpl"]
+resource_name = "scroll"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-216, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5bas"]
+_data = {
+&"RESET": SubResource("Animation_e5bas"),
+&"scroll": SubResource("Animation_jdtpl")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d1bkm"]
+distance = 40.0
+
+[node name="Ground" type="StaticBody2D" unique_id=1521306590]
+script = ExtResource("1_jdtpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1491653689]
+texture_repeat = 2
+scale = Vector2(1.20125, 1)
+texture = ExtResource("2_e5bas")
+offset = Vector2(400, 83.99999)
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731690761]
+position = Vector2(252, 84)
+shape = SubResource("RectangleShape2D_d1bkm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2063200664]
+root_node = NodePath("../CollisionShape2D")
+libraries/ = SubResource("AnimationLibrary_e5bas")
+autoplay = &"scroll"
+
+[node name="Deathzone" type="Area2D" parent="." unique_id=267653594]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone" unique_id=2071811955]
+shape = SubResource("WorldBoundaryShape2D_d1bkm")
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
