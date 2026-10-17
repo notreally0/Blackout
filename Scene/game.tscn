@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://euk772svyrmg"]
 
+[ext_resource type="Script" uid="uid://dpbwpok1xgcwv" path="res://Scripts/game.gd" id="1_thj8p"]
 [ext_resource type="PackedScene" uid="uid://bgp40gpqnqei" path="res://Scene/player.tscn" id="2_4jv7b"]
 [ext_resource type="Texture2D" uid="uid://dqnwoypodw7nx" path="res://Assets/Texture/background-Recovered.png" id="2_w51g1"]
 [ext_resource type="PackedScene" uid="uid://cahayeudrtp88" path="res://Scene/ground.tscn" id="3_4jv7b"]
-[ext_resource type="PackedScene" uid="uid://d27pi2g0wr1hg" path="res://Scene/obstacle.tscn" id="4_03iqk"]
+[ext_resource type="PackedScene" uid="uid://cidlf4qspah1v" path="res://Scene/obstacle_spawner.tscn" id="5_h8jt7"]
 
 [node name="Game" type="Node2D" unique_id=1504023395]
+script = ExtResource("1_thj8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1915818778]
 position = Vector2(240, 427)
 texture = ExtResource("2_w51g1")
 
-[node name="Player" parent="." unique_id=208787570 instance=ExtResource("2_4jv7b")]
-position = Vector2(61, 413)
-
-[node name="Obstacle" parent="." unique_id=218177599 instance=ExtResource("4_03iqk")]
-position = Vector2(888, 449)
+[node name="ObstacleSpawner" parent="." unique_id=1927451628 instance=ExtResource("5_h8jt7")]
+position = Vector2(700, 400)
 
 [node name="Ground" parent="." unique_id=1521306590 instance=ExtResource("3_4jv7b")]
 position = Vector2(0, 686)
+
+[node name="Player" parent="." unique_id=208787570 instance=ExtResource("2_4jv7b")]
+position = Vector2(234, 577)
+
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="game_started" from="Player" to="." method="_on_player_game_started"]
