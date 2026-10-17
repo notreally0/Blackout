@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ca8325bgrhk7u" path="res://Scripts/hud.gd" id="1_3quw2"]
 [ext_resource type="FontFile" uid="uid://cv5bgstr3v68r" path="res://Assets/Fonts/flappyfont.TTF" id="2_fmoiy"]
 [ext_resource type="Texture2D" uid="uid://dfgkqsoqbuei1" path="res://Assets/Texture/message.png" id="3_fmoiy"]
+[ext_resource type="PackedScene" uid="uid://m3sqil6kw7xo" path="res://Scene/game_over_screen.tscn" id="4_et0hg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d1bkm"]
 font = ExtResource("2_fmoiy")
@@ -36,3 +37,7 @@ offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_fmoiy")
+
+[node name="GameOverScreen" parent="." unique_id=914788439 instance=ExtResource("4_et0hg")]
+visible = false
+modulate = Color(1, 1, 1, 0)

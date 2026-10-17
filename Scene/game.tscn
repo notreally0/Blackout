@@ -6,14 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dqnwoypodw7nx" path="res://Assets/Texture/background-Recovered.png" id="2_w51g1"]
 [ext_resource type="PackedScene" uid="uid://cahayeudrtp88" path="res://Scene/ground.tscn" id="3_4jv7b"]
 [ext_resource type="PackedScene" uid="uid://cidlf4qspah1v" path="res://Scene/obstacle_spawner.tscn" id="5_h8jt7"]
-[ext_resource type="PackedScene" uid="uid://m3sqil6kw7xo" path="res://Scene/game_over_screen.tscn" id="7_h8jt7"]
 
 [node name="Game" type="Node2D" unique_id=1504023395]
 script = ExtResource("1_thj8p")
 
 [node name="HUD" parent="." unique_id=1074012662 instance=ExtResource("2_thj8p")]
-
-[node name="GameOverScreen" parent="HUD" unique_id=914788439 instance=ExtResource("7_h8jt7")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1915818778]
 position = Vector2(240, 427)
@@ -26,7 +23,7 @@ position = Vector2(700, 400)
 position = Vector2(0, 686)
 
 [node name="Player" parent="." unique_id=208787570 instance=ExtResource("2_4jv7b")]
-position = Vector2(241, 466)
+position = Vector2(83, 464)
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="game_started" from="Player" to="." method="_on_player_game_started"]
