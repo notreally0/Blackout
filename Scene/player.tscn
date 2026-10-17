@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgp40gpqnqei"]
+
+[ext_resource type="Script" uid="uid://cdwrta2p8eyg3" path="res://player.gd" id="1_y8w33"]
+[ext_resource type="Texture2D" uid="uid://bld6uvhb465oq" path="res://Assets/Texture/Pumpkin.png" id="2_xa75v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w51g1"]
+radius = 16.0
+height = 42.0
+
+[node name="player" type="RigidBody2D" unique_id=208787570]
+gravity_scale = 0.0
+script = ExtResource("1_y8w33")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1825310514]
+scale = Vector2(1.4375, 1.4062499)
+texture = ExtResource("2_xa75v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=911997690]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_w51g1")
