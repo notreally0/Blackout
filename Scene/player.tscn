@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bjvxqn1fh85vl" path="res://Scripts/player.gd" id="1_y8w33"]
 [ext_resource type="Texture2D" uid="uid://b3quciaa3l8tw" path="res://Assets/Texture/bird.png" id="2_y8w33"]
+[ext_resource type="AudioStream" uid="uid://busj4onqbgqw6" path="res://Assets/Audio/wing.wav" id="3_xa75v"]
+[ext_resource type="AudioStream" uid="uid://dcjq6ai8ssmf3" path="res://Assets/Audio/hit.wav" id="4_58ae2"]
+[ext_resource type="AudioStream" uid="uid://6wrbxdwoiuff" path="res://Assets/Audio/point.wav" id="5_r6jsd"]
 
 [sub_resource type="Animation" id="Animation_y8w33"]
 resource_name = "Idle"
@@ -85,3 +88,17 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=911997690]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_y8w33")
+
+[node name="FlapSound" type="AudioStreamPlayer" parent="." unique_id=1010940713]
+stream = ExtResource("3_xa75v")
+volume_db = -20.0
+pitch_scale = 1.5
+mix_target = 1
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1266761764]
+stream = ExtResource("4_58ae2")
+volume_db = -20.0
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=689805609]
+stream = ExtResource("5_r6jsd")
+volume_db = -20.0

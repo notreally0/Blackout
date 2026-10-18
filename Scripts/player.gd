@@ -1,12 +1,14 @@
 extends RigidBody2D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 signal game_started
 var started := false
 var is_alive := true
 signal died
 signal scored
-
+@onready var hit_sound: AudioStreamPlayer = $HitSound
+@onready var score_sound: AudioStreamPlayer = $ScoreSound
+@onready var flap_sound: AudioStreamPlayer = $FlapSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("flap") && is_alive:
 		if !started:
@@ -32,13 +34,16 @@ func flap() -> void:
 	linear_velocity.y = -340.0
 	angular_velocity = -8.0
 	animation_player.play("Idle")
+	flap_sound.play()
 	
 func die() -> void:
 	if is_alive:
 		is_alive = false 
 		died.emit()
 		animation_player.pause()
+		hit_sound.play()
 
 func score_point() -> void:
 	if is_alive:
 		scored.emit()
+		score_sound.play()

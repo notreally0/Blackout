@@ -12,7 +12,7 @@ size = Vector2(78, 578)
 size = Vector2(78, 481)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6tx1"]
-size = Vector2(20, 112)
+size = Vector2(39, 126)
 
 [node name="Obstacle" type="CharacterBody2D" unique_id=218177599 groups=["obstacles"]]
 script = ExtResource("1_xod6l")
@@ -23,6 +23,7 @@ shape = SubResource("RectangleShape2D_j3vn7")
 disabled = true
 
 [node name="Piller-top" type="Area2D" parent="." unique_id=303838903]
+position = Vector2(0, -15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Piller-top" unique_id=732372768]
 position = Vector2(0, -347)
@@ -47,7 +48,7 @@ shape = SubResource("RectangleShape2D_u8s1y")
 [node name="ScoreBox" type="Area2D" parent="." unique_id=701763316]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreBox" unique_id=225819306]
-position = Vector2(29, 0)
+position = Vector2(19.5, -7)
 shape = SubResource("RectangleShape2D_h6tx1")
 
 [connection signal="body_entered" from="Piller-top" to="." method="_on_pillertop_body_entered"]

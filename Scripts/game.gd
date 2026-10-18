@@ -27,6 +27,7 @@ func _on_player_died() -> void:
 		save_high_score()
 	
 	await  get_tree().create_timer(0.5).timeout
+
 	hud.show_game_over_screen(score, high_score)
 
 func _on_player_scored() -> void:
@@ -41,11 +42,7 @@ func save_high_score() -> void:
 func load_high_score() -> void:
 	if FileAccess.file_exists(save_file_path):
 		var save_data = FileAccess.open(save_file_path, FileAccess.READ)
-		var value = save_data.get_var()
+		high_score = save_data.get_var()
 		save_data.close()
-		if value is int:
-			high_score = value
-		
-		
 		
 		
